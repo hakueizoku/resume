@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eunice's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="page">
+      <article class="card">
+        <h1>About Me</h1>
+        <div class="about-row">
+          <div class="about-image">
+            <img src="src/eun.png" alt="Eun Robles" />
+          </div>
+          <div class="about-text">
+            <p class="subtitle">
+              Hello! My name is Eunice Robles, a BS Computer Science major and graduating student at Holy Angel University. 
+              I enjoy programming and doing art. I’m eager to continue growing in my field and aspire to become a full-stack developer.
+            </p>
+            <h2>Tech Stack</h2>
+            <div class="skills">
+              <span class="tech">HTML</span>
+              <span class="tech">CSS</span>
+              <span class="tech">JavaScript</span>
+              <span class="tech">Machine Learning</span>
+              <span class="tech">Network Configuration</span>
+              <span class="tech">Java</span>
+              <span class="tech">Python</span>
+              <span class="tech">SQL</span>
+              <span class="tech">Php</span>
+            </div>
+
+            <div class="tabs">
+              <button class="tab-btn active" data-target="certifications">Certifications</button>
+              <button class="tab-btn" data-target="projects">Projects</button>
+              <button class="tab-btn" data-target="contacts">Contact</button>
+              <a class="tab-btn" href="src/Eunice-Robles-Resume.pdf" download>Resume</a>
+            </div>
+            <div class="tab-content active" id="certifications">
+              <div class="tab-card">
+                <button class="collapse-btn">Legacy JavaScript Algorithms and Data Structures V7</button>
+                <div class="collapse-content">Issued by: FreeCodeCamp, March 2026
+                  <img src="src/Python.png" alt="JSV7">
+                </div>
+              </div>
+              <div class="tab-card">
+                <button class="collapse-btn">Scientific Computing with Python</button>
+                <div class="collapse-content">Issued by: FreeCodeCamp, March 2026.
+                  <img src="src/JSV7.png" alt="Python">
+                </div>
+              </div>
+              <div class="tab-card">
+                <button class="collapse-btn">CompTIA IT Fundamentals+ (ITF+) Certification</button>
+                <div class="collapse-content">Issued by: CompTIA, May 2024.
+                  <img src="src/itf.png" alt="ITF+">
+                </div>
+              </div>
+              <div class="tab-card">
+                <button class="collapse-btn">English for IT 1</button>
+                <div class="collapse-content">Issued by: Cisco, Oct 2024.
+                  <img src="src/eng.png" alt="eng">
+                </div>
+              </div>
+            </div>
+            <div class="tab-content" id="projects">
+              <div class="tab-card">
+                <button class="collapse-btn">U-ReaL: A Browser Extension for Fraudulent Links</button>
+                <div class="collapse-content">A Chrome extension project that detects risky URLs and warns users about potential phishing and scam links.</div>
+              </div>
+              <div class="tab-card">
+                <button class="collapse-btn">Ramble</button>
+                <div class="collapse-content">A social media app for sharing and discovering interesting content.</div>
+              </div>
+            </div>
+            <div class="tab-content" id="contacts">
+              <div class="tab-card">📧 ncrblss@gmail.com</div>
+              <div class="tab-card">📞 0976 446 0220</div>
+              <div class="tab-card">
+                <form id="messageForm" class="tab-form">
+                  <label for="emailMessage">Send me a Message!</label>
+                  <textarea id="emailMessage" name="emailMessage" rows="5" placeholder="Write your message here" required></textarea>
+                  <button type="submit" class="action-btn">Send</button>
+                </form>
+              </div>
+              <div class="tab-card"><a class="action-btn" href="https://www.linkedin.com/in/ncrbls/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+              <div class="tab-card"><a class="action-btn" href="https://www.github.com/hakueizoku/" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+            </div>
+          </div>
+        </div>
+        </article>
+    </main>
+
+    <script>
+      document.querySelectorAll('.tab-btn').forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = button.getAttribute('data-target');
+          document.querySelectorAll('.tab-btn').forEach((btn) => btn.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach((panel) => panel.classList.remove('active'));
+          button.classList.add('active');
+          document.getElementById(target).classList.add('active');
+        });
+      });
+
+      document.querySelectorAll('.collapse-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const card = btn.closest('.tab-card');
+          card.classList.toggle('open');
+        });
+      });
+    </script>
+  </body>
+</html>
